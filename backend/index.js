@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
@@ -15,5 +17,27 @@ app.get('/', function (req, res) {
 app.get('*', (req,res) =>{
 res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
+
+app.get('/api/register', function (req, res) {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((user) => {
+    // Signed in 
+    // ...
+  })
+  .catch((error) => {
+    let errorCode = error.code;
+    let errorMessage = error.message;
+    // ..
+  });
+});
+
+
+
+
+
+
+
+
+
 
 app.listen(process.env.PORT || 8080);
