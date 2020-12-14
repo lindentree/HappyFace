@@ -1,15 +1,15 @@
 // Our modules
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+require('dotenv/config');
 
 // express app
 const app = express();
 
 // connect to mongodb
-dotenv.config()
 const dbURI = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@happycluster.cmho2.mongodb.net/HappyPlant?retryWrites=true&w=majority`
 mongoose.connect(dbURI, {userNewUrlParser: true, useUnifiedTopology: true})
 // remember to add the port listener to the callback funciton
@@ -17,6 +17,9 @@ mongoose.connect(dbURI, {userNewUrlParser: true, useUnifiedTopology: true})
 .catch((err) => console.log('Uh Oh! Something went wrong :('));
 
 app.use(express.static(path.join(__dirname, 'build')));
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.get('/ping', function (req, res) {
  return res.send('pong');
