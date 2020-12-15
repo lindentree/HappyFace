@@ -13,8 +13,8 @@ const app = express();
 const dbURI = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@happycluster.cmho2.mongodb.net/HappyPlant?retryWrites=true&w=majority`
 mongoose.connect(dbURI, {userNewUrlParser: true, useUnifiedTopology: true})
 // remember to add the port listener to the callback funciton
-.then((result) => console.log('You are connected :)' ))
-.catch((err) => console.log('Uh Oh! Something went wrong :('));
+.then((result) => console.log( result, 'You are connected :)' ))
+.catch((err) => console.log(err, 'Uh Oh! Something went wrong :('));
 
 app.use(express.static(path.join(__dirname, 'build')));
 

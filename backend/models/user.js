@@ -2,11 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const uniqueValidator = require('mongoose-unique-validator');
 
-// validations for a differnt file
-// const validateEmail = funcitoon(email) {
-//     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-//     return re.test(email)
-// };
+
+// email validation
+const validateEmail = function(email) {
+    var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return re.test(email)
+};
 
 // User Schema
 const userSchema = new Schema({
@@ -40,8 +41,15 @@ const userSchema = new Schema({
           index: '2dsphere'
         },
         climate: {
-            humidity: ,
-            temperature:,
+            humidity: {
+                type: Number, set: function (v) { return Math.round(v) ;}
+            },
+            temperature:{
+                type: Number, set: function (v) { return Math.round(v) ;}
+            },
+            description: {
+                
+            }
         }
     },
     preferences:{
@@ -50,7 +58,7 @@ const userSchema = new Schema({
     any_plants:{
         plants: {
             min: { type: Number, min: 0 },
-            max: { type: Number, min: 0 }
+            max: { type: Number, max: 500 }
         },
     },
     current_mood:{
