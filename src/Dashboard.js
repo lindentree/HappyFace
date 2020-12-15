@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -9,7 +11,11 @@ class Dashboard extends React.Component {
   }
 
   componentWillMount() {
-
+    axios.get('/pong')
+    .then(res => {
+      alert(res);
+    })
+}
 
   }
 
