@@ -62,10 +62,34 @@ const userSchema = new Schema({
         },
     },
     current_mood:{
-
+            happy: {
+            type: Boolean,
+            default: false
+        },
+            mad: {
+            type: Boolean,
+            default: false
+        },
+            sad: {
+            type: Boolean,
+            default: false
+        },
+            stressed: {
+            type: Boolean,
+            default: false
+        },
+            tired: {
+            type: Boolean,
+            default: false
+        },
+            lonely: {
+            type: Boolean,
+            default: false
+        },
     },
 });
 
 userSchema.plugin(uniqueValidator, {message: 'is already taken.'});
 
-module.exports = new mongoose.model('Users', userSchema);
+// module.exports = new mongoose.model('Users', userSchema);
+mongoose.model('Users', userSchema);
