@@ -57,6 +57,7 @@ const userSchema = new Schema({
     },
     any_plants:{
         plants: {
+            // cross refernce plant types at plant schema
             min: { type: Number, min: 0 },
             max: { type: Number, max: 500 }
         },
