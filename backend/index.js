@@ -18,6 +18,10 @@ mongoose.connect(dbURI, {userNewUrlParser: true, useUnifiedTopology: true})
 .then((result) => console.log( result, 'You are connected :)' ))
 .catch((err) => console.log(err, 'Uh Oh! Something went wrong :('));
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -27,8 +31,9 @@ app.get('/ping', function (req, res) {
  return res.send('pong');
 });
 
-app.get('/api/add_plant', function (req, res) {
- Plants.create_plant(req.params.plant)
+app.post('/api/add_plant', function (req, res) {
+  // console.log(req.body, 'BEANS')
+ Plants.create_plant(req.body.plant)
  });
 
 app.get('/', function (req, res) {

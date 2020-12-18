@@ -6,7 +6,7 @@ const Plants = require('../../models/plant');
 
 // const User = mongoose.model('Users', userSchema);
 // stick with create and read controller calls
-const plant_index = (res, req) => {
+const plant_index = (req,res) => {
     Plants.find().sort({ createdAt: -1 })
         .then((result) => {
             res.render('index')
@@ -16,7 +16,7 @@ const plant_index = (res, req) => {
         })
 }
 
-const find_plant_by_name = (res, req) => {
+const find_plant_by_name = (req,res) => {
     Plants.findOne({name: req.params.plant}
         .then((result) => {
             return res.status(200).json(result);
@@ -38,8 +38,9 @@ const find_plant_reccomendation = (req,res) => {
     })
 }
 
-const create_plant = (res,req) => {
-    const plant = new Plants(req.params.plant)
+const create_plant = (req,res) => {
+    console.log('BEANS', req);
+    const plant = new Plants(req)
     plant.save()
     .then((result) => {
         console.log(result);
