@@ -5,18 +5,14 @@ const Schema = mongoose.Schema;
 const plantSchema = new Schema({
     name: {
         type:String,
-        required: true,
-        createdOn: {type: Date, "default": Date.now},
     },
     img:
     {
         data: Buffer,
         contentType: String
     },
-    description: {body: String},
-    ref:{
-        url:String
-    },
+    description: String,
+    url:String,
     optimal_climate:{
         humidity: {
             type: Number, set: function (v) { return Math.round(v) ;},
@@ -25,42 +21,16 @@ const plantSchema = new Schema({
         },
         temperature:{
             type: Number, set: function (v) { return Math.round(v) ;},
-            min: { type: Number, min: -100 },
-            max: { type: Number, max: 200 }
+            min: { type: Number, min: -10 },
+            max: { type: Number, max: 150 }
         },
     },
-    optimal_moods:{
-        happy: {
-            type: Boolean,
-            default: false
-        },
-            mad: {
-            type: Boolean,
-            default: false
-        },
-            sad: {
-            type: Boolean,
-            default: false
-        },
-            stressed: {
-            type: Boolean,
-            default: false
-        },
-            tired: {
-            type: Boolean,
-            default: false
-        },
-            lonely: {
-            type: Boolean,
-            default: false
-        },
-    },
+    optimal_moods: [{
+        type:String, 
+    }]
 
 });
 
-// getter for reference link
-const root = 'https://en.wikipedia.org/wiki/Cactus';
-Schema.path('ref.0.url').get(v=> `${root}${v}`);
 
 // module.exports = new mongoose.model('Plants', plantSchema);
 const Plants = mongoose.model('Plants', plantSchema);

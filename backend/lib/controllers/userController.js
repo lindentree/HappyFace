@@ -15,6 +15,15 @@ const user_index = (res, req) => {
             console.log(err);
         })
 }
+const find_user_by_name = (res, req) => {
+    User.findOne({username: req.params.user}
+        .then((result) => {
+            return res.status(200).json(result);
+        }).catch((err) => {
+             return res.status(500).send(err);
+        })
+
+}
 
 const user_create_get = (res,req) => {
     res.render('create', {''})
@@ -34,6 +43,7 @@ const user_create_post = (res, req) => {
 
 module.exports ={
     user_index,
+    find_user_by_name,
     user_create_get,
     user_create_post,
 }

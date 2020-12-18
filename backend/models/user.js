@@ -1,35 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const uniqueValidator = require('mongoose-unique-validator');
 
 
-// email validation
-const validateEmail = function(email) {
-    var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return re.test(email)
-};
+
 
 // User Schema
 const userSchema = new Schema({
     username:{
         name:String,
-        trim: true,
-        lowercase: true,
-        unique: true,
-        required: [true, "can't be blank"],
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please make a valid Username'],
-        index: true,
-        createdOn: {type: Date, "default": Date.now},
+
     },
     email: {
         type: String,
-        trim: true,
-        lowercase: true,
-        unique: true,
-        required: [true, "email is required"],
-        validate: [validateEmail, 'Please fill a valid email address'],
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
-        index: true,
     },
     location: {
         type: {
@@ -88,8 +70,9 @@ const userSchema = new Schema({
             type: Boolean,
             default: false
         },
-    }, {timestamps: true});
+    }
+});
 
 
-const User = mongoose.model('Users', userSchema);
-module.exports = User;
+
+module.exports = new mongoose.model('Users', userSchema);
