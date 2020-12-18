@@ -23,36 +23,36 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 // // mongodb/mongoose routes
-app.get('/add-users',(req, res) => {
-  const user = new User({
-    username: 'beans',
-    email: 'beans@beans',
-    location: 'los angeles',
-    preference: 'succlents',
-    any_plants: 'false',
-    current_mood: 'sad',
+// app.get('/add-users',(req, res) => {
+//   const user = new User({
+//     username: 'beans',
+//     email: 'beans@beans',
+//     location: 'los angeles',
+//     preference: 'succlents',
+//     any_plants: 'false',
+//     current_mood: 'sad',
 
-  });
-  user.save()
-    .then((result) =>{
-      res.send(result)
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-})
+//   });
+//   user.save()
+//     .then((result) =>{
+//       res.send(result)
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// })
 
-app.get('/add-plants',(req, res) => {
-  const plant = new Plants({
-    name:
-    img:
-    description:
-    ref:
-    optimal_climate:
-    
+// app.get('/add-plants',(req, res) => {
+//   const plant = new Plants({
+//     name:
+//     img:
+//     description:
+//     ref:
+//     optimal_climate:
 
-  })
-})
+
+//   })
+// })
 app.get('/ping', function (req, res) {
  return res.send('pong');
 });
