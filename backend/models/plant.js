@@ -6,6 +6,7 @@ const plantSchema = new Schema({
     name: {
         type:String,
         required: true,
+        createdOn: {type: Date, "default": Date.now},
     },
     img:
     {
@@ -62,4 +63,5 @@ const root = 'https://en.wikipedia.org/wiki/Cactus';
 Schema.path('ref.0.url').get(v=> `${root}${v}`);
 
 // module.exports = new mongoose.model('Plants', plantSchema);
-mongoose.model('Plants', plantSchema);
+const Plants = mongoose.model('Plants', plantSchema);
+module.exports = Plants;

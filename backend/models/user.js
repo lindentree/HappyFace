@@ -19,6 +19,7 @@ const userSchema = new Schema({
         required: [true, "can't be blank"],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please make a valid Username'],
         index: true,
+        createdOn: {type: Date, "default": Date.now},
     },
     email: {
         type: String,
@@ -87,10 +88,8 @@ const userSchema = new Schema({
             type: Boolean,
             default: false
         },
-    },
-});
+    }, {timestamps: true});
 
-userSchema.plugin(uniqueValidator, {message: 'is already taken.'});
 
-// module.exports = new mongoose.model('Users', userSchema);
-mongoose.model('Users', userSchema);
+const User = mongoose.model('Users', userSchema);
+module.exports = User;
