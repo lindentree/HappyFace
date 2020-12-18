@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const user_index = (res, req) => {
     User.find().sort({ createdAt: -1 })
         .then((result) => {
-            res.render('index', {''})
+            res.render('index')
         })
         .catch((err) => {
             console.log(err);
@@ -23,10 +23,10 @@ const find_user_by_name = (res, req) => {
              return res.status(500).send(err);
         })
 
-}
+    )}
 
 const user_create_get = (res,req) => {
-    res.render('create', {''})
+    res.render('create')
 }
 
 const user_create_post = (res, req) => {

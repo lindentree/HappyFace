@@ -9,7 +9,7 @@ const Plants = require('../../models/plant');
 const plant_index = (res, req) => {
     Plants.find().sort({ createdAt: -1 })
         .then((result) => {
-            res.render('index', {''})
+            res.render('index')
         })
         .catch((err) => {
             console.log(err);
@@ -25,7 +25,7 @@ const find_plant_by_name = (res, req) => {
              return res.status(500).send(err);
         })
 
-}
+    )}
 
 const find_plant_reccomendation = (req,res) => {
     Plants.find({optimal_climate:{ humidity: req.params.humidity, temperature: req.params.humidity}, optimal_moods: {$all : req.params.moods} 
@@ -35,27 +35,36 @@ const find_plant_reccomendation = (req,res) => {
         .catch((err) => {
             return res.status(500).send(err);
         })
+    })
 }
 
-
-const plant_create_get = (res,req) => {
-    res.render('create', {name: 'What is your plant\'s name?'})
-}
-
-const plant_create_post = (res, req) => {
-    const user = new Plants(req.body);
-
-    user.save()
+const create_plant = (res,req) => {
+    const plant = new Plants(req.params.plant)
+    plant.save()
     .then((result) => {
-        res.redirect('/user');
+        console.log(result);
     })
     .catch((err) => {
-        console.log(err);
+        console.log(err)
     })
 }
+
+// const plant_create_post = (res, req) => {
+//     const user = new Plants(req.body);
+
+//     user.save()
+//     .then((result) => {
+//         res.redirect('/user');
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+// }
 
 module.exports ={
     plant_index,
-    plant_create_get,
-    plant_create_post,
+    find_plant_by_name,
+    find_plant_reccomendation,
+    create_plant,
+    // plant_create_post,
 }
