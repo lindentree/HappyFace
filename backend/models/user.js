@@ -25,10 +25,10 @@ const userSchema = new Schema({
         },
         climate: {
             humidity: {
-                type: Number, set: function (v) { return Math.round(v) ;}
+                type: Number
             },
             temperature:{
-                type: Number, set: function (v) { return Math.round(v) ;}
+                type: Number
             },
             description: {
                 
@@ -41,8 +41,7 @@ const userSchema = new Schema({
     any_plants:{
         plants: {
             // cross refernce plant types at plant schema
-            min: { type: Number, min: 0 },
-            max: { type: Number, max: 500 }
+            type: Number,
         },
     },
     current_mood:{

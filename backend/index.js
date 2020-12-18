@@ -32,7 +32,6 @@ app.get('/ping', function (req, res) {
 });
 
 app.post('/api/add_plant', function (req, res) {
-  // console.log(req.body, 'BEANS')
  Plants.create_plant(req.body.plant)
  });
 

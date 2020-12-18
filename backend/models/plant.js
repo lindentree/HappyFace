@@ -15,14 +15,12 @@ const plantSchema = new Schema({
     url:String,
     optimal_climate:{
         humidity: {
-            type: Number, set: function (v) { return Math.round(v) ;},
-            min: { type: Number, min: 0 },
-            max: { type: Number, max: 100 }
+            type: Number,
+
         },
         temperature:{
-            type: Number, set: function (v) { return Math.round(v) ;},
-            min: { type: Number, min: -10 },
-            max: { type: Number, max: 150 }
+            type: Number,
+ 
         },
     },
     optimal_moods: [{

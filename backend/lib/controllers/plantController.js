@@ -39,7 +39,7 @@ const find_plant_reccomendation = (req,res) => {
 }
 
 const create_plant = (req,res) => {
-    console.log('BEANS', req);
+    console.log( req);
     const plant = new Plants(req)
     plant.save()
     .then((result) => {
@@ -50,22 +50,12 @@ const create_plant = (req,res) => {
     })
 }
 
-// const plant_create_post = (res, req) => {
-//     const user = new Plants(req.body);
 
-//     user.save()
-//     .then((result) => {
-//         res.redirect('/user');
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     })
-// }
 
 module.exports ={
     plant_index,
     find_plant_by_name,
     find_plant_reccomendation,
     create_plant,
-    // plant_create_post,
+
 }
