@@ -5,7 +5,8 @@ const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
 require('dotenv/config');
-const User = require('./models/user')
+const User = require('./models/user');
+const Plants = require('./models/plant');
 
 // express app
 const app = express();
@@ -24,12 +25,12 @@ app.use(bodyParser.json())
 // // mongodb/mongoose routes
 app.get('/add-users',(req, res) => {
   const user = new User({
-    username: '',
-    email: '',
-    location: '',
-    preference: '',
-    any_plants: '',
-    current_mood: '',
+    username: 'beans',
+    email: 'beans@beans',
+    location: 'los angeles',
+    preference: 'succlents',
+    any_plants: 'false',
+    current_mood: 'sad',
 
   });
   user.save()
@@ -40,7 +41,18 @@ app.get('/add-users',(req, res) => {
       console.log(err);
     });
 })
-app.get('/add-plants');
+
+app.get('/add-plants',(req, res) => {
+  const plant = new Plants({
+    name:
+    img:
+    description:
+    ref:
+    optimal_climate:
+    
+
+  })
+})
 app.get('/ping', function (req, res) {
  return res.send('pong');
 });
