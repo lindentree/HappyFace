@@ -1,24 +1,35 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// plant schema
 const plantSchema = new Schema({
     name: {
         type:String,
-        required: true,
     },
     img:
     {
         data: Buffer,
         contentType: String
     },
-    description: {body: String},
-    ref:,
+    description: String,
+    url:String,
     optimal_climate:{
-          
-    },
-    optimal_moods:{
+        humidity: {
+            type: Number,
 
+        },
+        temperature:{
+            type: Number,
+ 
+        },
     },
+    optimal_moods: [{
+        type:String, 
+    }]
+
 });
 
-module.exports = new mongoose.model('Plants', plantSchema);
+
+// module.exports = new mongoose.model('Plants', plantSchema);
+const Plants = mongoose.model('Plants', plantSchema);
+module.exports = Plants;
