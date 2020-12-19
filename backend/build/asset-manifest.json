@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f8585ebc.chunk.css",
+    "main.js": "/static/js/main.495ece4a.chunk.js",
+    "main.js.map": "/static/js/main.495ece4a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5a7deb74.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5a7deb74.js.map",
+    "static/js/2.2095b0b6.chunk.js": "/static/js/2.2095b0b6.chunk.js",
+    "static/js/2.2095b0b6.chunk.js.map": "/static/js/2.2095b0b6.chunk.js.map",
+    "static/js/3.18bcc031.chunk.js": "/static/js/3.18bcc031.chunk.js",
+    "static/js/3.18bcc031.chunk.js.map": "/static/js/3.18bcc031.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.f8585ebc.chunk.css.map": "/static/css/main.f8585ebc.chunk.css.map",
+    "static/js/2.2095b0b6.chunk.js.LICENSE.txt": "/static/js/2.2095b0b6.chunk.js.LICENSE.txt",
+    "static/media/happy-green-face-hi.79af8e4b.png": "/static/media/happy-green-face-hi.79af8e4b.png",
+    "static/media/plantImage.5a02e7c2.jpg": "/static/media/plantImage.5a02e7c2.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5a7deb74.js",
+    "static/js/2.2095b0b6.chunk.js",
+    "static/css/main.f8585ebc.chunk.css",
+    "static/js/main.495ece4a.chunk.js"
+  ]
+}
