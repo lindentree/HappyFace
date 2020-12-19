@@ -15,12 +15,14 @@ class Dashboard extends React.Component {
     .then(res => {
       alert(res);
     })
-}
-
   }
 
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return (
+      <div>
+        <h1>Welcome, {this.props.name}</h1>;
+      </div>
+    )
 
     
   }

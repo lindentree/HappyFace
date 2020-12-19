@@ -7,7 +7,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 require('dotenv/config');
 const User = require('./lib/controllers/userController');
-const Plants = require('./lib/controllers/plantController');
+const Plant = require('./lib/controllers/plantController');
 
 // express app
 const app = express();
@@ -33,8 +33,12 @@ app.get('/ping', function (req, res) {
 });
 
 app.post('/api/add_plant', function (req, res) {
- Plants.create_plant(req.body.plant)
+ Plant.create_plant(req.body.plant)
  });
+
+ app.post('/api/user_create_post', function (req, res) {
+  User.create_plant(req.body.plant)
+  });
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));

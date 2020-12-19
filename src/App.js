@@ -7,15 +7,22 @@ import {
 
 import logo from './happy-green-face-hi.png';
 import './App.css';
+import React, { useState } from "react";
+import LandingPage from "./components/LandingPage";
+import Dashboard from "./components/Dashboard";
+import plantImage from "./plantImage.jpg";
+
 
 function App() {
+  const [user, setUser] = useState({ loggedIn: false });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>HappyFace</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-      
-      </header>
+      <LandingPage
+        background={plantImage}
+        title="HappyFace"
+        subtitle="Recommending plants for users's mental wellbeing"
+      />
     </div>
   );
 }
