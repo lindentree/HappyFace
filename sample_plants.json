@@ -1,0 +1,21 @@
+[
+ {
+   "name": "Cactus",
+   "img": null,
+   "description": "spiny",
+   "url": "https://en.wikipedia.org/wiki/Cactus",
+   "optimal_climate": {
+       "humidity": 15,
+       "temperature": 130
+   },
+   "optimal_moods": ["happy"] 
+ },
+ {
+
+    
+ }
+
+
+
+
+]

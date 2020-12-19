@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+import logo from './happy-green-face-hi.png';
 import './App.css';
+import React, { useState } from "react";
+import LandingPage from "./components/LandingPage";
+import Dashboard from "./components/Dashboard";
+import plantImage from "./plantImage.jpg";
+
 
 function App() {
+  const [user, setUser] = useState({ loggedIn: false });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LandingPage
+        background={plantImage}
+        title="HappyFace"
+        subtitle="Recommending plants for users's mental wellbeing"
+      />
     </div>
   );
 }
