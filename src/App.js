@@ -10,11 +10,11 @@ import './App.css';
 import React, { useState } from "react";
 import LandingPage from "./components/LandingPage";
 import Dashboard from "./components/Dashboard";
+import Recommendations from "./components/Recommendations";
 import plantImage from "./plantImage.jpg";
 
 
 function App() {
-  const [user, setUser] = useState({ loggedIn: false });
 
   return (
     <div className="App">
@@ -23,7 +23,8 @@ function App() {
         title="HappyFace"
         subtitle="Recommending plants for users's mental wellbeing"
       />
-      <Dashboard />
+      
+      
     </div>
     
   );
