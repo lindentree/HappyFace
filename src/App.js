@@ -21,7 +21,7 @@ function App() {
       <LandingPage
         background={plantImage}
         title="HappyFace"
-        subtitle="Recommending plants for users's mental wellbeing"
+        subtitle="Recommending plants for mental well-being."
       />
     </div>
   );
