@@ -23,30 +23,31 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '../build')));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.get('/ping', function (req, res) {
- return res.send('pong');
-});
-
-app.post('/api/add_plant', function (req, res) {
- Plant.create_plant(req.body.plant)
- });
-
- app.post('/api/user_create_post', function (req, res) {
-  User.create_plant(req.body.plant)
-  });
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 app.get('*', (req,res) =>{
-res.sendFile(path.join(__dirname, '../build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
+
+app.get('/ping', function (req, res) {
+  return res.send('pong');
+ });
+ 
+ app.post('/api/add_plant', function (req, res) {
+  Plant.create_plant(req.body.plant)
+  });
+ 
+  app.post('/api/user_create_post', function (req, res) {
+   User.create_plant(req.body.plant)
+   });
 
 app.get('/api/register', function (req, res) {
   firebase.auth().createUserWithEmailAndPassword(email, password)

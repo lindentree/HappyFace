@@ -17,9 +17,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "nodemon ./backend/index.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "nodemon": "nodemon ./backend/index.js",
-    "client": "npm start --prefix client",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
