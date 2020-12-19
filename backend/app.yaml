@@ -8,13 +8,11 @@ env_variables:
   MONGO_PASSWORD: 3f3fvk8HW88mm3Ag
 
 handlers:
-  
+
 - url: /stylesheets
   static_dir: stylesheets
 - url: /.*
   secure: always
   redirect_http_response_code: 301
   script: auto
-  static_files: client/build/index.html
-  upload: client/build/index.html
-  static_dir: client/build 
+  
