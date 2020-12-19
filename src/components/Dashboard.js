@@ -1,8 +1,20 @@
 import React from 'react';
 import axios from 'axios';
+import ImageGallery from 'react-image-gallery';
 
+const images = [
+  {
+    original: `/assets/aloe_vera.png`,
+  },
+  {
+    original: '/assets/peace_lily.jpg',
+  },
+  {
+    original: '/assets/lavender-pot.jpg',
+  },
+];
 
-class Dashboard extends React.Component {
+export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +32,9 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <h1>Welcome, {this.props.name}</h1>;
+        <h1>Plant Recommendations</h1>
+        <h2>Based on your local climate and mental health needs</h2>
+        <ImageGallery items={images} />
       </div>
     )
 

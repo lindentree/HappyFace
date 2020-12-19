@@ -23,7 +23,9 @@ function App() {
         title="HappyFace"
         subtitle="Recommending plants for users's mental wellbeing"
       />
+      <Dashboard />
     </div>
+    
   );
 }
 
